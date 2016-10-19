@@ -14,6 +14,17 @@ $ git clone git@bitbucket.org:mongeralaegon/react-body-plate-model.git
 
 ```
 app
+|   .babelrc
+|   .editorconfig
+|   .eslintrc
+|   .gitignore
+|   .mocha.config.js
+|   mocha.opts
+|   package.json
+|   README.md
+|   webpack.config.default.js
+|   webpack.config.dev.js  
+|   webpack.config.props.js
 └───rules
 │   └───controllers
 │   └───helpers
