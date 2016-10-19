@@ -12,19 +12,23 @@ $ git clone git@bitbucket.org:mongeralaegon/react-body-plate-model.git
 
 ## Folder Structure
 
-+--app
-|   +-- rules
-    |+-- controllers
-    |+-- helpers
-    |+-- models
-    |+-- services
-|   +-- src
-    |+-- components
-    |+-- container
-    |+-- layouts
-    |+-- routes
-    |+-- views
-    
+```
+app
+└───rules
+│   └───controllers
+│   └───helpers
+│   └───models
+│   └───services
+└───src
+    │   index.html
+    |   index.js
+    │   index.spec.js
+    └───components
+    └───container
+    └───layouts
+    └───routes
+    └───views
+```
 
 ## Installation
 
