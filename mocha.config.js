@@ -1,5 +1,7 @@
-import chai from 'chai';
+// const chai = require('chai');
 
-global.should = chai.should();
-global.assert = chai.assert;
-global.expect = chai.expect;
+console.log('chai');
+
+// global.should = chai.should();
+// global.assert = chai.assert;
+// global.expect = chai.expect;

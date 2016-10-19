@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --display-error-details --config webpack.config.dev.js --open",
     "build": "webpack --config webpack.config.prod.js",
-    "test": "mocha --reporter progress app/**/*.spec.js",
+    "test": "mocha --opts ./mocha.opts app/**/*.spec.js",
     "test:watch": "npm run test -- --watch"
   },
   "license": "ISC",
@@ -51,6 +51,7 @@
     "postcss-move-media": "^1.0.0-pre",
     "postcss-scss": "^0.3.1",
     "react-hot-loader": "^3.0.0-beta.6",
+    "spec": "^1.0.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",
     "url-loader": "^0.5.7",

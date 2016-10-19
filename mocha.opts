@@ -1,3 +1,3 @@
---require ./mocha.config.js
+--require mocha.config.js
 --require spec
 --compilers js:babel-register
