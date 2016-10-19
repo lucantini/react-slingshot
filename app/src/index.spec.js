@@ -1,5 +1,5 @@
-it('Teste do Zé', () => {
-    describe('É o Zé', ()=> {
-        expect('zé').to.eql('zé');
+it('First grader', () => {
+    describe('should pass primary school', ()=> {
+        expect(2 + 2).to.eql(4);
     });
 });

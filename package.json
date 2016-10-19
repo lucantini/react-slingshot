@@ -1,8 +1,12 @@
 {
-  "name": "area-restrita",
+  "name": "react-body-plate-model",
   "version": "1.0.0",
-  "description": "Projeto Área Restrita - Mongeral Aegon",
+  "description": "React Body Plate Model - Mongeral Aegon",
   "author": "Mongeral Aegon",
+  "repository": {
+      "type": "git",
+      "url": "git@bitbucket.org:mongeralaegon/react-body-plate-model.git"
+  },
   "scripts": {
     "dev": "webpack-dev-server --display-error-details --config webpack.config.dev.js --open",
     "build": "webpack --config webpack.config.prod.js",
