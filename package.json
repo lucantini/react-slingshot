@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --display-error-details --config webpack.config.dev.js --open",
     "build": "webpack --config webpack.config.prod.js",
-    "test": "mocha --opts ./mocha.opts app/**/*.spec.js",
+    "test": "mocha --reporter progress --opts mocha.opts app/**/*.spec.js",
     "test:watch": "npm run test -- --watch"
   },
   "license": "ISC",

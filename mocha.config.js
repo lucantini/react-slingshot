@@ -1,7 +1,5 @@
-// const chai = require('chai');
+const chai = require('chai');
 
-console.log('chai');
-
-// global.should = chai.should();
-// global.assert = chai.assert;
-// global.expect = chai.expect;
+global.should = chai.should();
+global.assert = chai.assert;
+global.expect = chai.expect;
