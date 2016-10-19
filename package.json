@@ -4,8 +4,8 @@
   "description": "React Boilerplate Model - Mongeral Aegon",
   "author": "Mongeral Aegon",
   "repository": {
-      "type": "git",
-      "url": "git@bitbucket.org:mongeralaegon/react-boilerplate-model.git"
+    "type": "git",
+    "url": "git@bitbucket.org:mongeralaegon/react-boilerplate-model.git"
   },
   "scripts": {
     "dev": "webpack-dev-server --display-error-details --config webpack.config.dev.js --open",
@@ -55,6 +55,7 @@
     "postcss-move-media": "^1.0.0-pre",
     "postcss-scss": "^0.3.1",
     "react-hot-loader": "^3.0.0-beta.6",
+    "resolve-url-loader": "^1.6.0",
     "spec": "^1.0.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",

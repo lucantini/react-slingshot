@@ -43,7 +43,7 @@ module.exports = config = {
     ],
     loaders: [{
       test: /\.styl/,
-      loader: extractCSS.extract('style', ['css?sourceMap', 'resolve-url', 'postcss', 'stylus?sourceMap']),
+      loader: extractCSS.extract(['css?sourceMap', 'resolve-url', 'postcss', 'stylus?sourceMap']),
     },
     {
       test: /\.js$/,
@@ -51,7 +51,7 @@ module.exports = config = {
       loaders: ['babel'],
     }, {
       test: /\.css$/,
-      loaders: ['style', 'css', 'resolve-url']
+      loaders: ['css', 'resolve-url']
     }, {
       test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
       loader: 'file',
