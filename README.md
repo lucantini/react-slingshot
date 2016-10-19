@@ -1,44 +1,44 @@
-# React Body Plate Model
+# React Boilerplate Model
 
-This is a base project, created to serve as a slingshot for all of our future endeavors. This repo is already set up with folder structure, eslint, editor config and testing, as defined by the Mongeral Aegon Development Team Stardards.
+This is a base project, created to serve as a slingshot for all of our future endeavors. This repo is already set up with folder structure, eslint, editor config and testing, as defined by the Mongeral Aegon Development Team Standards.
 
 ## Get the files
 
 Clone this repo.
 
 ```
-$ git clone git@bitbucket.org:mongeralaegon/react-body-plate-model.git
+$ git clone git@bitbucket.org:mongeralaegon/react-boilerplate-model.git
 ```
 
 ## Folder Structure
 
 ```
 app
-|   .babelrc
-|   .editorconfig
-|   .eslintrc
-|   .gitignore
-|   .mocha.config.js
-|   mocha.opts
-|   package.json
-|   README.md
-|   webpack.config.default.js
-|   webpack.config.dev.js  
-|   webpack.config.props.js
 └───rules
 │   └───controllers
 │   └───helpers
 │   └───models
 │   └───services
 └───src
-    │   index.html
-    |   index.js
-    │   index.spec.js
-    └───components
-    └───container
-    └───layouts
-    └───routes
-    └───views
+|   │   index.html
+|   |   index.js
+|   │   index.spec.js
+|   └───components
+|   └───container
+|   └───layouts
+|   └───routes
+|   └───views
+.babelrc
+.editorconfig
+.eslintrc
+.gitignore
+mocha.config.js
+mocha.opts
+package.json
+README.md
+webpack.config.default.js
+webpack.config.dev.js  
+webpack.config.props.js
 ```
 
 ## Installation
@@ -60,7 +60,7 @@ $ npm run dev
 
 ## Build
 
-To run the build process run:
+To run the build process:
 
 ```
 $ npm run build
@@ -70,7 +70,7 @@ All the files will be at the build folder, at the root of the project.
 
 ## Tests
 
-We've decided that all the tests will be siblings to theyr respective files. A Header.js component will have a header.spec.js defining it behaviour in the same folder. To run tests:
+We've decided that all the tests will be siblings to their respective files. For example, a Header.js component will have a header.spec.js defining it behaviour in the same folder. To run tests:
 
 ```
 $ npm test

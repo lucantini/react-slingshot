@@ -1,11 +1,11 @@
 {
-  "name": "react-body-plate-model",
+  "name": "react-boilerplate-model",
   "version": "1.0.0",
-  "description": "React Body Plate Model - Mongeral Aegon",
+  "description": "React Boilerplate Model - Mongeral Aegon",
   "author": "Mongeral Aegon",
   "repository": {
       "type": "git",
-      "url": "git@bitbucket.org:mongeralaegon/react-body-plate-model.git"
+      "url": "git@bitbucket.org:mongeralaegon/react-boilerplate-model.git"
   },
   "scripts": {
     "dev": "webpack-dev-server --display-error-details --config webpack.config.dev.js --open",

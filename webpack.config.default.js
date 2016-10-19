@@ -38,12 +38,11 @@ module.exports = config = {
         test: /\.js$/,
         loaders: ['eslint'],
         // define an exclude so we check just the files we need
-        exclude: /(node_modules)/,
+        exclude: [/(node_modules)/, /\*spec.js/],
       }
     ],
     loaders: [{
       test: /\.styl/,
-      exclude: [/(node_modules)/, /\*spec.js/],
       loader: extractCSS.extract('style', ['css?sourceMap', 'resolve-url', 'postcss', 'stylus?sourceMap']),
     },
     {
