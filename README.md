@@ -10,8 +10,6 @@ Clone this repo.
 $ git clone git@bitbucket.org:mongeralaegon/react-body-plate-model.git
 ```
 
-![Folder Structure](http://imgur.com/sSWqmiw)
-
 ## Installation
 
 All of our base dependencies are managed by NPM and are already in this package.json. Simply run:
