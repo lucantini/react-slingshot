@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "babel-node server.js",
     "build": "webpack --config webpack.config.prod.js",
-    "test": "babel-node node_modules/.bin/istanbul test _mocha -- --opts mocha.opts app/**/*.spec.js",
+    "test":"mocha --opts mocha.opts \"./app/**/*.spec.js\"",
+    "cover": "babel-node node_modules/.bin/istanbul cover _mocha -- --opts mocha.opts \"./app/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch"
   },
   "license": "ISC",
@@ -27,6 +28,7 @@
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
     "babel-eslint": "^7.0.0",
+    "babel-istanbul": "^0.11.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-react-html-attrs": "^2.0.0",
     "babel-plugin-transform-class-properties": "^6.16.0",
@@ -51,8 +53,9 @@
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
-    "istanbul": "^0.4.5",
+    "istanbul": "^1.1.0-alpha.1",
     "mocha": "^3.1.2",
+    "nyc": "^8.3.2",
     "opener": "^1.4.2",
     "postcss-loader": "^1.0.0",
     "postcss-move-media": "^1.0.0-pre",
