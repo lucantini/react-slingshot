@@ -77,3 +77,9 @@ $ npm test
 ```
 
 We use [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/) as our test frameworks. We also use [Enzyme](https://github.com/airbnb/enzyme) for React component testing.
+
+We also use [Istanbul](https://github.com/gotwarlost/istanbul) for coverage testing - check if everything is indeed tested, or covered - just run them with:
+
+```
+$ npm run cover
+```
