@@ -8,10 +8,11 @@ const appDOM = document.getElementById('app');
 ReactDOM.render(<App />, appDOM);
 
 if (module.hot) {
-    module.hot.accept('./App', () => {
-        ReactDOM.render(
-            <AppContainer><App /></AppContainer>,
-            appDOM
-        );
-    });
+	module.hot.accept('./App', () => {
+		const NextApp = require('./App').default;
+		ReactDOM.render(
+			<AppContainer><NextApp /></AppContainer>,
+			appDOM
+		);
+	});
 }
