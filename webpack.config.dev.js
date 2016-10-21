@@ -1,7 +1,7 @@
 var config = require('./webpack.config.default'),
 	path = require('path'),
 	webpack = require('webpack'),
-  	project_path = path.join(__dirname, 'app'),
+	project_path = path.join(__dirname, 'app'),
 	dist_path = path.join(__dirname, 'build');
 
 config.debug = true;
@@ -16,11 +16,11 @@ config.devServer = {
 config.entry = [
 	'react-hot-loader/patch',
 	`webpack-dev-server/client?http://${config.devServer.host}:${config.devServer.port}`,
-    'webpack/hot/only-dev-server',
+	'webpack/hot/only-dev-server',
 	path.join(project_path, 'src', 'index.js')
 ];
 
-config.plugins.concat([
+config.plugins = config.plugins.concat([
 	new webpack.HotModuleReplacementPlugin(),
 	new webpack.NoErrorsPlugin(),
 	new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify('development')})

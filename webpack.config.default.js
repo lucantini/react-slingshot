@@ -1,4 +1,4 @@
-var webpack = require('webpack'),
+const webpack = require('webpack'),
 	path = require('path'),
 	HtmlWebpackPlugin = require('html-webpack-plugin'),
 	ExtractTextPlugin = require('extract-text-webpack-plugin'),
@@ -8,7 +8,7 @@ var webpack = require('webpack'),
 	project_path = path.join(__dirname, 'app'),
 	dist_path = path.join(__dirname, 'build');
 
-module.exports = config = {
+const config = {
 	entry: path.join(project_path, 'src', 'index.js'),
 	output: {
 		path: dist_path,
@@ -76,3 +76,5 @@ module.exports = config = {
 	postcssConf: [autoprefixer({browsers: ['last 2 versions']})]
 
 };
+
+module.exports = config;

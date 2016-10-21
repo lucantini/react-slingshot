@@ -1,14 +1,15 @@
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-const opener = require('opener');
-const config = require('./webpack.config.dev');
+import webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
+import opener from 'opener';
+import config from './webpack.config.dev';
+
 const host = config.devServer.host;
 const port = config.devServer.port;
 
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
-    hot: true,
+    hot:true,
     historyApiFallback: true,
     stats: {
         colors: true
