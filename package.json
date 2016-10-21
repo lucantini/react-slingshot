@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "babel-node server.js",
     "build": "webpack --config webpack.config.prod.js",
-    "test":"mocha --opts mocha.opts \"./app/**/*.spec.js\"",
+    "test": "mocha --opts mocha.opts \"./app/**/*.spec.js\"",
     "cover": "babel-node node_modules/.bin/istanbul cover _mocha -- --opts mocha.opts \"./app/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch"
   },
@@ -60,6 +60,7 @@
     "postcss-loader": "^1.0.0",
     "postcss-move-media": "^1.0.0-pre",
     "postcss-scss": "^0.3.1",
+    "react-addons-test-utils": "^15.3.2",
     "resolve-url-loader": "^1.6.0",
     "spec": "^1.0.1",
     "stylus": "^0.54.5",
