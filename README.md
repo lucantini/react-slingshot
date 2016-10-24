@@ -14,7 +14,7 @@ $ git clone git@bitbucket.org:mongeralaegon/react-boilerplate-model.git
 
 ```
 app
-└───rules
+└───core
 │   └───controllers
 │   └───helpers
 │   └───models
