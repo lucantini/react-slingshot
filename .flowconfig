@@ -1,0 +1,7 @@
+[ignore]
+
+.*/node_modules/*
+.*/coverage/*
+webpack.*
+mocha.*
+server.js

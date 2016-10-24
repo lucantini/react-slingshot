@@ -9,6 +9,7 @@
     "transform-decorators-legacy",
     "react-html-attrs",
     "transform-class-properties",
-    "react-hot-loader/babel"
+    "react-hot-loader/babel",
+    "transform-flow-strip-types"
   ]
 }

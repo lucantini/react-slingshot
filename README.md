@@ -83,3 +83,5 @@ We also use [Istanbul](https://github.com/gotwarlost/istanbul) for coverage test
 ```
 $ npm run cover
 ```
+
+We use [Flow](https://flowtype.org) for put in the types of parametres and returns
