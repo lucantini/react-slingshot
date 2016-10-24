@@ -3,7 +3,9 @@ const webpack = require('webpack'),
 	HtmlWebpackPlugin = require('html-webpack-plugin'),
 	ExtractTextPlugin = require('extract-text-webpack-plugin'),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
+	FlowStatusWebpackPlugin = require('flow-status-webpack-plugin'),
 	autoprefixer = require('autoprefixer'),
+	mqpacker = require("css-mqpacker"),
 	extractCSS = new ExtractTextPlugin('css/[name].[chunkhash].css', {allChunks: true}),
 	project_path = path.join(__dirname, 'app'),
 	dist_path = path.join(__dirname, 'build');
@@ -29,7 +31,10 @@ const config = {
 			filename: 'index.html'
 		}),
 		new CleanWebpackPlugin(dist_path),
-		new webpack.optimize.DedupePlugin()
+		new webpack.optimize.DedupePlugin(),
+		new FlowStatusWebpackPlugin({
+			restartFlow: false
+		})
 	],
 	module: {
 		preLoaders: [
@@ -43,7 +48,7 @@ const config = {
 		loaders: [
 			{
 				test: /\.styl/,
-				loader: extractCSS.extract(['css?sourceMap', 'resolve-url', 'postcss', 'stylus?sourceMap'])
+				loader: extractCSS.extract('style-loader', ['css?sourceMap&modules&importLoaders=1&localIdentName=[local]', 'postcss', 'resolve-url', 'stylus?sourceMap'])
 			}, {
 				test: /\.js$/,
 				exclude: [
@@ -52,7 +57,7 @@ const config = {
 				loaders: ['babel']
 			}, {
 				test: /\.css$/,
-				loaders: ['css', 'resolve-url']
+				loaders: ['style-loader', 'css?sourceMap&modules&importLoaders=1&localIdentName=[local]', 'resolve-url']
 			}, {
 				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
 				loader: 'file',
@@ -73,7 +78,7 @@ const config = {
 			}
 		]
 	},
-	postcssConf: [autoprefixer({browsers: ['last 2 versions']})]
+	postcss: [ autoprefixer({ browsers: ['last 2 versions'] }), mqpacker() ]
 
 };
 

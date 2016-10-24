@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb", "airbnb-flow"],
   "rules": {
       "react/jsx-indent": 0,
       "react/jsx-filename-extension": 0,
