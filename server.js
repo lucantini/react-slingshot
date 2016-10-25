@@ -33,5 +33,5 @@ new WebpackDevServer(webpack(config), {
         console.log(err);
     }
     console.log(`Listening at ${host}:${port}`);
-    //opener(`http://${host}:${port}`);
+    opener(`http://${host}:${port}`);
 });

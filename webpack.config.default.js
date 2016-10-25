@@ -33,7 +33,8 @@ const config = {
 		new CleanWebpackPlugin(dist_path),
 		new webpack.optimize.DedupePlugin(),
 		new FlowStatusWebpackPlugin({
-			restartFlow: false
+			restartFlow: false,
+			failOnError: true
 		})
 	],
 	module: {

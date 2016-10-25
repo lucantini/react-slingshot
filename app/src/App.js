@@ -13,7 +13,7 @@ export default class App extends Component {
 		return (
 			<div>
 				<h1 className={style.exampleClass}>Good to go!</h1>
-				<p className={style.anotherExampleClass}>macaco</p>
+				<p className={style.anotherExampleClass}>Uhul</p>
 				<FirstComponent />
 			</div>
 		);
