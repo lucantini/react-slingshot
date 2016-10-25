@@ -8,8 +8,6 @@
       "no-undef": 0,
       "react/jsx-no-undef":0,
       "indent": ["error", "tab"],
-	  "no-tabs": 0,
-	  "global-require": 0,
-	  "import/newline-after-import": 0
+	  "no-tabs": 0
   }
 }

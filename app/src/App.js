@@ -7,7 +7,7 @@ import style from './App.styl';
 export default class App extends Component {
 	constructor(props:any) {
 		super(props);
-		props.length();
+		console.log('gg');
 	}
 	render() {
 		return (
