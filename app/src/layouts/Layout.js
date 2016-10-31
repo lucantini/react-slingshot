@@ -1,18 +1,14 @@
-/* @flow */
+import React, { PropTypes } from 'react';
 
-import React from 'react';
-import logo from 'images/Logo_MA_Blocada_Colorida.png';
 
-import FirstComponent from '../components/firstcomponent/FirstComponent';
-import style from './App.styl';
-
-const Layout = () => (
+const Layout = props => (
 	<div>
-		<img src={logo} alt="Teste" />
-		<h1 className={style.exampleClass}>Good to go!</h1>
-		<p className={style.anotherExampleClass}>Uhul</p>
-		<FirstComponent />
+		{props.children}
 	</div>
 );
+
+Layout.propTypes = {
+	children: PropTypes.node,
+};
 
 export default Layout;
