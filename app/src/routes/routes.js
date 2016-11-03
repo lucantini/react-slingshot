@@ -1,12 +1,13 @@
-import {Route, IndexRoute} from 'react-router';
+import { Route, IndexRoute } from 'react-router';
+import React from 'react';
 
 import Layout from '../layouts/Layout';
 import Home from '../views/home/Home';
 
 
 const routers = (
-	<Route component={Layout}>
-		<IndexRoute path="/" component={Home}/>
+	<Route path="/" component={Layout}>
+		<IndexRoute component={Home} />
 	</Route>
 );
 

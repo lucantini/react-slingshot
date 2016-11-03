@@ -1,15 +1,17 @@
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from './layouts/Layout';
+import { browserHistory } from 'react-router';
+
+import Routes from './routes';
 
 const appDOM = document.getElementById('app');
 
-ReactDOM.render(<Layout />, appDOM);
+ReactDOM.render(Routes(browserHistory), appDOM);
 
 if (module.hot) {
-	module.hot.accept('./layouts/Layout', () => {
-		const NextApp = require('./layouts/Layout').default;
+	module.hot.accept('./routes', () => {
+		const NextApp = require('./routes').default;
 		ReactDOM.render(
 			<AppContainer><NextApp /></AppContainer>,
 			appDOM
