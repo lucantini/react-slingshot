@@ -1,8 +1,8 @@
 import React from 'react';
-import { Router } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 
 import routes from './routes';
 
-const Routes = history => <Router history={history} routes={routes} />;
+const Routes = () => <Router history={browserHistory} routes={routes} />;
 
 export default Routes;
