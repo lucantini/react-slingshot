@@ -7,9 +7,10 @@ import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import routes from './routes';
-import Store from './container';
+import configureStore from './container/store';
 
 const appDOM = document.getElementById('app'),
+	Store = configureStore(),
 	history = syncHistoryWithStore(browserHistory, Store);
 
 const loadRender = () => {
@@ -25,7 +26,7 @@ const loadRender = () => {
 		</AppContainer>,
 		appDOM
 	);
-}
+};
 
 if (module.hot) {
 	module.hot.accept('./routes', () => {
