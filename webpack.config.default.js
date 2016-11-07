@@ -20,7 +20,7 @@ const config = {
 	resolve: {
 		root: project_path,
 		alias: {
-			images: 'src/images'
+			images: 'src/assets/images'
 		}
 	},
 	plugins: [
