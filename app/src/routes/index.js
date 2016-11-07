@@ -1,8 +1,15 @@
+//	@flow
+import { Route, IndexRoute } from 'react-router';
 import React from 'react';
-import { Router, browserHistory } from 'react-router';
 
-import routes from './routes';
+import Layout from '../layouts/Layout';
+import Home from '../views/home/Home';
 
-const Routes = () => <Router history={browserHistory} routes={routes} />;
 
-export default Routes;
+const routers: Route[] = (
+	<Route path="/" component={Layout}>
+		<IndexRoute component={Home} />
+	</Route>
+);
+
+export default routers;

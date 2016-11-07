@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 
-const Home = () => <div>Teste</div>;
 
+const Home = props => <div>
+	{props.homeReducer.title}
+</div>;
 
-export default Home;
+Home.propTypes = {
+	homeReducer: PropTypes.shape({
+		title: PropTypes.string,
+	}),
+};
+
+export default connect(state => state)(Home);
