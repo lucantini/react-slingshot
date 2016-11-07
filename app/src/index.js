@@ -2,20 +2,34 @@ import 'babel-polyfill';
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { browserHistory, Router } from 'react-router';
+import { Provider } from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
 
-import Routes from './routes';
+import routes from './routes';
 import Store from './container';
 
-const appDOM = document.getElementById('app');
+const appDOM = document.getElementById('app'),
+	history = syncHistoryWithStore(browserHistory, Store);
 
-ReactDOM.render(Routes(Store), appDOM);
+const loadRender = () => {
+	const NextApp = require('./routes').default;
+
+	ReactDOM.render(
+		<AppContainer>
+			<Provider store={Store}>
+				<Router history={history}>
+					{routes}
+				</Router>
+			</Provider>
+		</AppContainer>,
+		appDOM
+	);
+}
 
 if (module.hot) {
 	module.hot.accept('./routes', () => {
-		const NextApp = require('./routes').default;
-		ReactDOM.render(
-			<AppContainer><NextApp /></AppContainer>,
-			appDOM
-		);
+		loadRender();
 	});
 }
+loadRender();

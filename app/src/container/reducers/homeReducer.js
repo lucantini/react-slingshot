@@ -1,13 +1,13 @@
 //	@flow
 
 const State = {
-	title: '',
+	title: 'Teste',
 };
 
 export default function (state: Object = State, action: Object) {
 	switch (action.type) {
 		case 'CHANGE_TITLE':
-			return { ...state, title: 'GG' };
+			return { ...state, title: 'Ação ++' };
 		default:
 			return state;
 	}

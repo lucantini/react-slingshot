@@ -1,13 +1,15 @@
 //	@flow
+import { Route, IndexRoute } from 'react-router';
 import React from 'react';
-import { Router, browserHistory } from 'react-router';
-import { Provider } from 'react-redux';
 
-import routes from './routes';
-
-const Routes = (store: Object = {}): Router => (<Provider store={store}>
-	<Router history={browserHistory} routes={routes} />
-</Provider>);
+import Layout from '../layouts/Layout';
+import Home from '../views/home/Home';
 
 
-export default Routes;
+const routers: Route[] = (
+	<Route path="/" component={Layout}>
+		<IndexRoute component={Home} />
+	</Route>
+);
+
+export default routers;
