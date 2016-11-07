@@ -1,12 +1,10 @@
 const webpack = require('webpack'),
 	path = require('path'),
 	HtmlWebpackPlugin = require('html-webpack-plugin'),
-	ExtractTextPlugin = require('extract-text-webpack-plugin'),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	FlowStatusWebpackPlugin = require('flow-status-webpack-plugin'),
 	autoprefixer = require('autoprefixer'),
 	mqpacker = require("css-mqpacker"),
-	extractCSS = new ExtractTextPlugin('css/[name].[chunkhash].css', {allChunks: true}),
 	project_path = path.join(__dirname, 'app'),
 	dist_path = path.join(__dirname, 'build');
 
@@ -25,7 +23,6 @@ const config = {
 	},
 	plugins: [
 		new webpack.optimize.OccurenceOrderPlugin(),
-		extractCSS,
 		new HtmlWebpackPlugin({
 			template: path.join(project_path, 'src/index.html'),
 			filename: 'index.html'
@@ -48,9 +45,6 @@ const config = {
 		],
 		loaders: [
 			{
-				test: /\.styl/,
-				loader: extractCSS.extract('style-loader', ['css?sourceMap&modules&importLoaders=1&localIdentName=[local]', 'postcss', 'resolve-url', 'stylus?sourceMap'])
-			}, {
 				test: /\.js$/,
 				exclude: [
 					/(node_modules)/, /\*spec.js/
@@ -79,7 +73,7 @@ const config = {
 			}
 		]
 	},
-	postcss: [ autoprefixer({ browsers: ['last 2 versions'] }), mqpacker() ]
+	postcss: [autoprefixer({ browsers: ['last 2 versions'] }), mqpacker()]
 
 };
 
