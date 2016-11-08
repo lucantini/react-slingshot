@@ -37,7 +37,6 @@
 	},
 	"devDependencies": {
 		"autoprefixer": "^6.5.1",
-		"babel": "^6.5.2",
 		"babel-cli": "^6.16.0",
 		"babel-core": "^6.17.0",
 		"babel-eslint": "^7.0.0",
@@ -92,5 +91,6 @@
 		"webpack": "^1.13.2",
 		"webpack-dev-server": "^1.16.2",
 		"webpack-hot-middleware": "^2.13.0"
-	}
+	},
+	"engines" : { "node" : ">=6" }
 }
