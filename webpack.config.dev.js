@@ -23,9 +23,18 @@ config.entry = [
 config.plugins = config.plugins.concat([
 	new webpack.HotModuleReplacementPlugin(),
 	new webpack.NoErrorsPlugin(),
-	new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify('development')})
+	new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') })
 ]);
+config.module.loaders.unshift({
+	test: /\.styl/,
+	loaders: ['style',
+		'css?sourceMap&modules&importLoaders=1&localIdentName=[local]',
+		'postcss',
+		'resolve-url',
+		'stylus?sourceMap']
+})
+;
 
-config.devtool = 'eval';
+config.devtool = 'source-map';
 
 module.exports = config;
