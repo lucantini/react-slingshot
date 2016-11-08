@@ -1,4 +1,4 @@
-const chai = require('chai'),
+let chai = require('chai'),
 	chaiEnzyme = require('chai-enzyme'),
 	hook = require('css-modules-require-hook'),
 	path = require('path'),
