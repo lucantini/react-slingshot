@@ -54,15 +54,12 @@ const config = {
 				test: /\.css$/,
 				loaders: ['style-loader', 'css?sourceMap&modules&importLoaders=1&localIdentName=[local]', 'resolve-url']
 			}, {
-				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-				loader: 'file',
-				query: {
-					name: 'css/fonts/[name].[ext]'
-				}
-			}, {
 				//IMAGE LOADER
-				test: /\.(jpe?g|png|gif)$/i,
+				test: /\.(jpe?g|png|gif|svg)$/i,
 				loader: 'file',
+				exclude: [
+					path.join(project_path, 'src/assets/fonts/')
+				],
 				query: {
 					name: 'images/[name].[ext]'
 				}
@@ -73,8 +70,7 @@ const config = {
 			}
 		]
 	},
-	postcss: [autoprefixer({ browsers: ['last 2 versions'] }), mqpacker()]
-
+	postcss: [autoprefixer({ browsers: ['last 2 versions'] }), mqpacker()],
 };
 
 module.exports = config;

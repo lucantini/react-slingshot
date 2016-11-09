@@ -4,7 +4,6 @@ var config = require('./webpack.config.default'),
 	project_path = path.join(__dirname, 'app'),
 	dist_path = path.join(__dirname, 'build');
 
-config.debug = true;
 
 config.devServer = {
 	contentBase: dist_path,
@@ -32,8 +31,16 @@ config.module.loaders.unshift({
 		'postcss',
 		'resolve-url',
 		'stylus?sourceMap']
-})
-;
+}, {
+	test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+	loader: 'url',
+	include: [
+		path.join(project_path, 'src/assets/fonts/')
+	],
+	query: {
+		name: 'fonts/[name].[ext]',
+	}
+});
 
 config.devtool = 'source-map';
 
