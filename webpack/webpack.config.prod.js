@@ -1,8 +1,8 @@
-var config = require('./webpack.config.default'),
+var config = require('./webpack.config.default.js'),
 	path = require('path'),
 	ExtractTextPlugin = require('extract-text-webpack-plugin'),
 	extractCSS = new ExtractTextPlugin('css/[name].[chunkhash].css', { allChunks: true }),
-	project_path = path.join(__dirname, 'app')
+	project_path = path.join(__dirname, '../app')
 webpack = require('webpack');
 
 config.plugins = config.plugins.concat([

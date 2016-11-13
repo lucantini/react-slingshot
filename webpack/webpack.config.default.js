@@ -5,8 +5,8 @@ const webpack = require('webpack'),
 	FlowStatusWebpackPlugin = require('flow-status-webpack-plugin'),
 	autoprefixer = require('autoprefixer'),
 	mqpacker = require("css-mqpacker"),
-	project_path = path.join(__dirname, 'app'),
-	dist_path = path.join(__dirname, 'build');
+	project_path = path.join(__dirname, '../app'),
+	dist_path = path.join(__dirname, '../public');
 
 const config = {
 	entry: path.join(project_path, 'src', 'index.js'),
