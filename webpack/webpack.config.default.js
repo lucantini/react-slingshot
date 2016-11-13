@@ -5,14 +5,16 @@ const webpack = require('webpack'),
 	FlowStatusWebpackPlugin = require('flow-status-webpack-plugin'),
 	autoprefixer = require('autoprefixer'),
 	mqpacker = require("css-mqpacker"),
-	project_path = path.join(__dirname, 'app'),
-	dist_path = path.join(__dirname, 'build');
+	project_path = path.join(__dirname, '../app'),
+	dist_path = path.join(__dirname, '../public');
 
 const config = {
-	entry: path.join(project_path, 'src', 'index.js'),
+	entry: [
+		path.join(project_path, 'src', 'index.js')
+	],
 	output: {
 		path: dist_path,
-		filename: 'js/[name].[hash].js',
+		filename: 'js/[name].js',
 		publicPath: '/'
 	},
 	resolve: {
@@ -22,12 +24,13 @@ const config = {
 		}
 	},
 	plugins: [
+		new CleanWebpackPlugin(['public'], { root: path.resolve(__dirname, '..'), verbose: true }),
 		new webpack.optimize.OccurenceOrderPlugin(),
 		new HtmlWebpackPlugin({
-			template: path.join(project_path, 'src/index.html'),
-			filename: 'index.html'
+			template: path.join(__dirname, '../views/index.ejs'),
+			inject: 'body',
+			filename: 'index.ejs'
 		}),
-		new CleanWebpackPlugin(dist_path),
 		new webpack.optimize.DedupePlugin(),
 		new FlowStatusWebpackPlugin({
 			restartFlow: false,
@@ -66,6 +69,11 @@ const config = {
 			}, {
 				// HTML LOADER
 				test: /\.html$/,
+				loader: 'html-loader'
+			},
+			{
+				// HTML LOADER
+				test: /\.ejs$/,
 				loader: 'html-loader'
 			}
 		]
