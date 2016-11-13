@@ -3,13 +3,11 @@ import { connect } from 'react-redux';
 
 
 const Home = props => <div>
-	{props.homeReducer.title}
+	{props.title}
 </div>;
 
 Home.propTypes = {
-	homeReducer: PropTypes.shape({
-		title: PropTypes.string,
-	}),
+	title: PropTypes.string,
 };
 
-export default connect(state => state)(Home);
+export default connect(state => state.homeReducer)(Home);
