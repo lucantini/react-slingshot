@@ -11,15 +11,19 @@ import config from '../webpack/webpack.config.dev';
 import renderRouter from './renderRouter';
 
 
-const host = process.env.HOST || '0.0.0.0',
-	port = process.env.PORT || 3333,
-	app = express();
+const host = config.devServer.host,
+	port = config.devServer.port,
+	app = express(),
+	isDevelopment = process.env.NODE_ENV !== 'production',
+	isProduction = process.env.NODE_ENV === 'production';
 
-app.set('views', path.join(__dirname, '../views'));
+
+app.engine('ejs', require('ejs').__express);
 app.set('view engine', 'ejs');
+app.use(express.static(config.output.path));
 
 
-if (process.env.NODE_ENV === 'development') {
+if (isDevelopment) {
 	let compiler = webpack(config)
 	app.use(WebpackDevMiddleware(compiler, {
 		publicPath: config.output.publicPath,
@@ -42,6 +46,14 @@ if (process.env.NODE_ENV === 'development') {
 	}));
 	app.use(WebpackHotMiddleware(compiler));
 }
+
+if (isProduction) {
+	app.set('views', path.join(config.output.path));
+}
+
+app.get('/favicon.ico', function (req, res) {
+	res.sendStatus(200);
+});
 
 renderRouter(app);
 

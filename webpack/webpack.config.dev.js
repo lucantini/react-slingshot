@@ -1,11 +1,10 @@
 var config = require('./webpack.config.default.js'),
 	path = require('path'),
 	webpack = require('webpack'),
-	project_path = path.join(__dirname, '../app'),
-	dist_path = path.join(__dirname, '../public');
+	project_path = path.join(__dirname, '../app');
 
 
-var devServer = {
+config.devServer = {
 	port: process.env.PORT || 3333,
 	host: process.env.HOST || '0.0.0.0'
 };
@@ -21,6 +20,7 @@ config.plugins = config.plugins.concat([
 	new webpack.NoErrorsPlugin(),
 	new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') })
 ]);
+
 config.module.loaders.unshift({
 	test: /\.styl/,
 	loaders: ['style',

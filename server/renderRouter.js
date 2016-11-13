@@ -1,3 +1,4 @@
+import React from 'react';
 import { match } from 'react-router';
 import { renderToString } from 'react-dom/server';
 import { RouterContext } from 'react-router';
@@ -49,7 +50,11 @@ function renderRoute(req, res, next) {
 
 				const state = store.getState();
 
-				res.render('index', { app: body, initialState: state });
+				res.render('index', {
+					app: body,
+					initialState: JSON.stringify(state),
+					isDevelopment: process.env.NODE_ENV !== 'production'
+				});
 
 			})
 			.catch((err) => next(err))

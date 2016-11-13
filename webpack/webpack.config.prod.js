@@ -2,8 +2,8 @@ var config = require('./webpack.config.default.js'),
 	path = require('path'),
 	ExtractTextPlugin = require('extract-text-webpack-plugin'),
 	extractCSS = new ExtractTextPlugin('css/[name].[chunkhash].css', { allChunks: true }),
-	project_path = path.join(__dirname, '../app')
-webpack = require('webpack');
+	project_path = path.join(__dirname, '../app'),
+	webpack = require('webpack');
 
 config.plugins = config.plugins.concat([
 	extractCSS,
@@ -14,6 +14,8 @@ config.plugins = config.plugins.concat([
 		}
 	})
 ]);
+
+config.output.filename = 'js/[name].[hash].js';
 
 config.module.loaders.unshift({
 	test: /\.styl/,
