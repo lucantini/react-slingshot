@@ -5,8 +5,10 @@ import express from 'express';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
 import opener from 'opener';
-import config from '../webpack/webpack.config.dev';
 import path from 'path';
+
+import config from '../webpack/webpack.config.dev';
+import renderRouter from './renderRouter';
 
 
 const host = process.env.HOST || '0.0.0.0',
@@ -41,10 +43,7 @@ if (process.env.NODE_ENV === 'development') {
 	app.use(WebpackHotMiddleware(compiler));
 }
 
-app.use((req, res)=> {
-	res.render('index', { app: '', initialState: {} });
-});
-
+renderRouter(app);
 
 app.listen(port, host, (err) => {
 	if (err) {
