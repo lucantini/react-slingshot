@@ -1,9 +1,9 @@
 [ignore]
 <PROJECT_ROOT>/node_modules/fbjs
 <PROJECT_ROOT>/coverage/*
-<PROJECT_ROOT>/webpack.*
+<PROJECT_ROOT>/webpack
 <PROJECT_ROOT>/mocha.*
-<PROJECT_ROOT>/server.js
+<PROJECT_ROOT>/server
 
 [libs]
 ./node_modules/iflow-react-router/index.js.flow

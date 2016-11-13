@@ -20,7 +20,6 @@ app
 │   └───models
 │   └───services
 └───src
-|   │   index.html
 |   |   index.js
 |   │   index.spec.js
 |   └───components
@@ -28,6 +27,17 @@ app
 |   └───layouts
 |   └───routes
 |   └───views
+└───webpack
+|   │   webpack.config.default.js
+|   |   webpack.config.dev.js  
+|   │   webpack.config.props.js
+└───server
+|   │   index.js
+|   |   renderRouter.js
+└───view
+|   │   index.js
+
+
 .babelrc
 .editorconfig
 .eslintrc
@@ -36,9 +46,6 @@ mocha.config.js
 mocha.opts
 package.json
 README.md
-webpack.config.default.js
-webpack.config.dev.js  
-webpack.config.props.js
 ```
 
 ## Installation
@@ -78,10 +85,17 @@ $ npm test
 
 We use [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/) as our test frameworks. We also use [Enzyme](https://github.com/airbnb/enzyme) for React component testing.
 
-We also use [Istanbul](https://github.com/gotwarlost/istanbul) for coverage testing - check if everything is indeed tested, or covered - just run them with:
+We also use [Istanbul](https://istanbul.js.org/) for coverage testing - check if everything is indeed tested, or covered - just run them with:
 
 ```
 $ npm run cover
 ```
 
 We use [Flow](https://flowtype.org) for put in the types of parametres and returns
+
+```
+$ npm start
+```
+
+Run project with server Render
+
