@@ -18,7 +18,7 @@
 	},
 	"scripts": {
 		"start": "NODE_ENV=production npm run server",
-		"dev": "NODE_ENV=development npm run server",
+		"dev": "NODE_ENV=development babel-node server/index.js",
 		"server": "nodemon --exec babel-node server/index.js",
 		"build": "webpack --config ./webpack/webpack.config.prod.js",
 		"test": "mocha --opts mocha.opts \"./app/**/*.spec.js\"",
