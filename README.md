@@ -36,8 +36,6 @@ app
 |   |   renderRouter.js
 └───view
 |   │   index.js
-
-
 .babelrc
 .editorconfig
 .eslintrc
@@ -62,7 +60,7 @@ Builds the application in dev mode and starts a webserver with hot reload. By de
 Just run:
 
 ```
-$ npm run dev
+$ npm start
 ```
 
 ## Build
@@ -70,8 +68,14 @@ $ npm run dev
 To run the build process:
 
 ```
-$ npm run build
+$ npm run build:dev
 ```
+or
+```
+$ npm run build:prod
+```
+
+For production builds
 
 All the files will be at the build folder, at the root of the project.
 
@@ -82,6 +86,11 @@ We've decided that all the tests will be siblings to their respective files. For
 ```
 $ npm test
 ```
+or
+```
+$ npm run test:watch
+```
+For keep running them while you test.
 
 We use [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/) as our test frameworks. We also use [Enzyme](https://github.com/airbnb/enzyme) for React component testing.
 
@@ -91,11 +100,30 @@ We also use [Istanbul](https://istanbul.js.org/) for coverage testing - check if
 $ npm run cover
 ```
 
-We use [Flow](https://flowtype.org) for put in the types of parametres and returns
+## Flow
 
-```
-$ npm start
-```
+We use [Flow](https://flowtype.org) for put in the types of parameters and returns.
 
-Run project with server Render
+## CSS
+
+For our CSS we choose to use the [Stylus](http://stylus-lang.com/) lang which is extremely efficient and easy to learn and use.
+Depending on the project we also use [SASS](http://sass-lang.com/).
+Also, for class namings and conventions we use the [BEM](https://css-tricks.com/bem-101/) standard.
+
+## Branching & Committing
+
+It's incrementally necessary to standardize our branches. We use [Git-Flow](https://danielkummer.github.io/git-flow-cheatsheet/)
+
+## Linting
+
+We use the [AirBnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) linter as our [eslint](http://eslint.org/).
+
+## Front Frameworks
+
+[React](https://facebook.github.io/react/) + [Redux](http://redux.js.org/). Pretty straight forward.
+
+## Final Notes
+
+Every single standard that we use here is necessary and obligatory. Learn them, they will make you a better developer, trust me :)
+
 
