@@ -1,14 +1,6 @@
-# React Boilerplate Model
+# React Slinghshot
 
-This is a base project, created to serve as a slingshot for all of our future endeavors. This repo is already set up with folder structure, eslint, editor config and testing, as defined by the Mongeral Aegon Development Team Standards.
-
-## Get the files
-
-Clone this repo.
-
-```
-$ git clone git@bitbucket.org:mongeralaegon/react-boilerplate-model.git
-```
+This is a base project, created to serve as a slingshot for all future endeavors. This repo is already set up with folder structure, eslint, editor config and testing.
 
 ## Folder Structure
 
@@ -124,6 +116,6 @@ We use the [AirBnb](https://github.com/airbnb/javascript/tree/master/packages/es
 
 ## Final Notes
 
-Every single standard that we use here is necessary and obligatory. Learn them, they will make you a better developer, trust me :)
+Every single standard that we use here is necessary. Learn them, they will make you a better developer, trust me :)
 
 
