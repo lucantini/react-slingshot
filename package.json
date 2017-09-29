@@ -1,11 +1,11 @@
 {
-	"name": "react-boilerplate-model",
+	"name": "react-slingshot",
 	"version": "1.0.0",
-	"description": "React Boilerplate Model - Mongeral Aegon",
-	"author": "Mongeral Aegon",
+	"description": "React Slinghsot",
+	"author": "Luca Cantini",
 	"repository": {
 		"type": "git",
-		"url": "git@bitbucket.org:mongeralaegon/react-boilerplate-model.git"
+		"url": "git@github.com:lucantini/react-slingshot.git"
 	},
 	"nyc": {
 		"sourceMap": false,
