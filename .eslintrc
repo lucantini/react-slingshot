@@ -4,8 +4,7 @@
 		"ecmaVersion": 7
 	},
 	"extends": [
-		"airbnb",
-		"airbnb-flow"
+		"airbnb"
 	],
 	"env": {
 		"browser": true,
@@ -22,7 +21,6 @@
 			"tab"
 		],
 		"react/jsx-filename-extension": 0,
-		"react/jsx-no-undef": 0,
 		"indent": [
 			"error",
 			"tab",

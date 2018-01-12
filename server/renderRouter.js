@@ -1,7 +1,7 @@
 import React from 'react';
 import { match } from 'react-router';
-import { renderToString } from 'react-dom/server';
 import { RouterContext } from 'react-router';
+import ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
 
 import routes from '../app/src/routes';
@@ -17,7 +17,7 @@ function renderRoute(req, res, next) {
 		}
 
 		if (!renderProps) {
-			return next(new Error('Missing render props'));
+			return '';
 		}
 
 		const components = renderProps.components;
@@ -36,7 +36,7 @@ function renderRoute(req, res, next) {
 
 		return fetchData({ store, location, params, history })
 			.then(() => {
-				const body = renderToString(
+				const body = ReactDOMServer.renderToString(
 					<Provider store={store}>
 						<RouterContext {...renderProps} />
 					</Provider>

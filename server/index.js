@@ -24,7 +24,7 @@ app.use(express.static(config.output.path));
 
 
 if (isDevelopment) {
-	let compiler = webpack(config)
+	let compiler = webpack(config);
 	app.use(WebpackDevMiddleware(compiler, {
 		publicPath: config.output.publicPath,
 		stats: {
@@ -41,7 +41,7 @@ if (isDevelopment) {
 			errorDetails: true,
 			warnings: true,
 			publicPath: false,
-			colors: true // color is life
+			colors: true
 		}
 	}));
 	app.use(WebpackHotMiddleware(compiler));

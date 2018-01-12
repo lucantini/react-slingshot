@@ -1,4 +1,4 @@
-var config = require('./webpack.config.default.js'),
+let config = require('./webpack.config.default.js'),
 	path = require('path'),
 	webpack = require('webpack'),
 	project_path = path.join(__dirname, '../app');
@@ -6,7 +6,7 @@ var config = require('./webpack.config.default.js'),
 
 config.devServer = {
 	port: process.env.PORT || 3333,
-	host: process.env.HOST || '0.0.0.0'
+	host: process.env.HOST || 'localhost'
 };
 
 config.entry = [
@@ -17,27 +17,9 @@ config.entry = [
 
 config.plugins = config.plugins.concat([
 	new webpack.HotModuleReplacementPlugin(),
-	new webpack.NoErrorsPlugin(),
+	new webpack.NoEmitOnErrorsPlugin(),
 	new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('development') })
 ]);
-
-config.module.loaders.unshift({
-	test: /\.styl/,
-	loaders: ['style',
-		'css?sourceMap&modules&importLoaders=1&localIdentName=[local]',
-		'postcss',
-		'resolve-url',
-		'stylus?sourceMap']
-}, {
-	test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-	loader: 'url',
-	include: [
-		path.join(project_path, 'src/assets/fonts/')
-	],
-	query: {
-		name: 'fonts/[name].[ext]',
-	}
-});
 
 config.devtool = 'source-map';
 

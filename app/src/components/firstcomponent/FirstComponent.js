@@ -1,8 +1,8 @@
 import React from 'react';
-import style from './FirstComponent.styl';
+import './FirstComponent.css';
 
 const FirstComponent = () => (
-	<p className={style.exampleParagraph}>You are set up!</p>
+	<p className="exampleParagraph">You are set up!</p>
 );
 
 export default FirstComponent;

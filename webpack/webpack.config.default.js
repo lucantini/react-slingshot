@@ -3,10 +3,8 @@ const webpack = require('webpack'),
 	HtmlWebpackPlugin = require('html-webpack-plugin'),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	FlowStatusWebpackPlugin = require('flow-status-webpack-plugin'),
-	autoprefixer = require('autoprefixer'),
-	mqpacker = require("css-mqpacker"),
 	project_path = path.join(__dirname, '../app'),
-	dist_path = path.join(__dirname, '../public');
+	dist_path = path.join(__dirname, '../dist');
 
 const config = {
 	entry: [
@@ -17,68 +15,73 @@ const config = {
 		filename: 'js/[name].js',
 		publicPath: '/'
 	},
-	resolve: {
-		root: project_path,
-		alias: {
-			images: 'src/assets/images'
-		}
+	module: {
+		rules: [{
+			// define an exclude so we check just the files we need
+			enforce: 'pre',
+			test: /\.js$/,
+			exclude: [/(node_modules)/, /\*spec.js/],
+			use: [{
+				loader: 'eslint-loader',
+				options: {
+					failOnWarning: false,
+					failOnError: false
+				}
+			}]
+		}, {
+			test: /\.css$/,
+			use: [{
+				loader: 'style-loader',
+				options: { sourceMap: true }
+			}, {
+				loader: 'css-loader',
+				options: { sourceMap: true }
+			},
+			// 	{
+			// 	loader: 'postcss-loader',
+			// 	options: { sourceMap: true }
+			// }
+			]
+		}, {
+			test: /\.js$/,
+			exclude: [/(node_modules)/, /\*spec.js/],
+			use: [{
+				loader: 'babel-loader',
+			}]
+		}, {
+			//IMAGE LOADER
+			test: /\.(jpe?g|png|gif|svg)$/i,
+			exclude: [path.join(project_path, 'src/assets/fonts/')],
+			use: [{
+				loader: 'file-loader',
+				query: {
+					name: 'images/[name].[ext]'
+				}
+			}],
+		}],
 	},
 	plugins: [
-		new CleanWebpackPlugin(['public'], { root: path.resolve(__dirname, '..'), verbose: true }),
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new HtmlWebpackPlugin({
-			template: path.join(__dirname, '../views/index.ejs'),
-			inject: 'body',
-			filename: 'index.ejs'
+		new CleanWebpackPlugin(['dist'], { root: path.resolve(__dirname, '..'), verbose: true }),
+		new webpack.LoaderOptionsPlugin({
+			options: {
+				eslint: {
+					failOnWarning: false,
+					failOnError: false,
+					fix: false,
+					quiet: false,
+				}
+			}
 		}),
-		new webpack.optimize.DedupePlugin(),
+		// new HtmlWebpackPlugin({
+		// 	template: path.join(__dirname, '../views/index.ejs'),
+		// 	inject: 'body',
+		// 	filename: 'index.ejs'
+		// }),
 		new FlowStatusWebpackPlugin({
 			restartFlow: false,
 			failOnError: true
 		})
 	],
-	module: {
-		preLoaders: [
-			{
-				test: /\.js$/,
-				loaders: ['eslint'],
-				// define an exclude so we check just the files we need
-				exclude: [/(node_modules)/, /\*spec.js/]
-			}
-		],
-		loaders: [
-			{
-				test: /\.js$/,
-				exclude: [
-					/(node_modules)/, /\*spec.js/
-				],
-				loaders: ['babel']
-			}, {
-				test: /\.css$/,
-				loaders: ['style-loader', 'css?sourceMap&modules&importLoaders=1&localIdentName=[local]', 'resolve-url']
-			}, {
-				//IMAGE LOADER
-				test: /\.(jpe?g|png|gif|svg)$/i,
-				loader: 'file',
-				exclude: [
-					path.join(project_path, 'src/assets/fonts/')
-				],
-				query: {
-					name: 'images/[name].[ext]'
-				}
-			}, {
-				// HTML LOADER
-				test: /\.html$/,
-				loader: 'html-loader'
-			},
-			{
-				// HTML LOADER
-				test: /\.ejs$/,
-				loader: 'html-loader'
-			}
-		]
-	},
-	postcss: [autoprefixer({ browsers: ['last 2 versions'] }), mqpacker()],
 };
 
 module.exports = config;

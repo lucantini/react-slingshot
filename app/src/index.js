@@ -8,7 +8,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import routes from './routes';
 import configureStore from './container/store';
-import './assets/stylus/main.styl';
+import './assets/styles/main.css';
 
 
 const appDOM = document.getElementById('app'),
