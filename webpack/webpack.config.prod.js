@@ -1,4 +1,4 @@
-var config = require('./webpack.config.default.js'),
+let config = require('./webpack.config.default.js'),
 	path = require('path'),
 	ExtractTextPlugin = require('extract-text-webpack-plugin'),
 	extractCSS = new ExtractTextPlugin('css/[name].[chunkhash].css', { allChunks: true }),
@@ -17,18 +17,22 @@ config.plugins = config.plugins.concat([
 
 config.output.filename = 'js/[name].[hash].js';
 
-config.module.loaders.unshift({
-	test: /\.styl/,
-	loader: extractCSS.extract('style-loader', ['css?sourceMap&modules&importLoaders=1&localIdentName=[local]', 'postcss', 'resolve-url', 'stylus?sourceMap'])
+config.module.rules.unshift({
+	test: /\.css/,
+	use: [{
+		loader: 'style-loader',
+	}, {
+		loader: 'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[local]',
+	}, {
+		loader: 'postcss-loader',
+	}, {
+		loader: 'resolve-url-loader',
+	}]
 }, {
 	test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-	loader: 'file',
-	include: [
-		path.join(project_path, 'src/assets/fonts/')
-	],
-	query: {
-		name: 'fonts/[name].[ext]',
-	}
+	use: [{
+		loader: 'file-loader',
+	}],
 });
 
 module.exports = config;

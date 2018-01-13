@@ -32,7 +32,7 @@ app
 .editorconfig
 .eslintrc
 .gitignore
-mocha.config.js
+jest.config.js
 mocha.opts
 package.json
 README.md
