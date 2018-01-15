@@ -1,8 +1,8 @@
 import { Route } from 'react-router';
 import React from 'react';
 
-import Home from '../views/home/Home';
-import About from '../views/about/About';
+import Home from '../views/Home/Home';
+import About from '../views/About/About';
 
 export default (
 	<Route path="/" component={Home} >

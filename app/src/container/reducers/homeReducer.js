@@ -1,7 +1,7 @@
 //	@flow
 
 const State = {
-	title: 'Teste GG',
+	title: 'Yay!',
 };
 
 export default function (state: Object = State, action: Object) {

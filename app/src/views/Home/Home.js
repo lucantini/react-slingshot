@@ -2,10 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import FirstComponent from '../../components/FirstComponent/FirstComponent';
+
+import './Home.css';
 
 const Home = props => (
 	<div>
-		{props.title}
+		<FirstComponent />
+		<div className="home__title">
+			{props.title}
+		</div>
 	</div>
 );
 

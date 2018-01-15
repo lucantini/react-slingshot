@@ -17,7 +17,6 @@ const config = {
 	},
 	module: {
 		rules: [{
-			// define an exclude so we check just the files we need
 			enforce: 'pre',
 			test: /\.js$/,
 			exclude: [/(node_modules)/, /\*spec.js/],
@@ -27,6 +26,12 @@ const config = {
 					failOnWarning: false,
 					failOnError: false
 				}
+			}]
+		}, {
+			test: /\.js$/,
+			exclude: [/(node_modules)/, /\*spec.js/],
+			use: [{
+				loader: 'babel-loader',
 			}]
 		}, {
 			test: /\.css$/,
@@ -42,12 +47,6 @@ const config = {
 			// 	options: { sourceMap: true }
 			// }
 			]
-		}, {
-			test: /\.js$/,
-			exclude: [/(node_modules)/, /\*spec.js/],
-			use: [{
-				loader: 'babel-loader',
-			}]
 		}, {
 			//IMAGE LOADER
 			test: /\.(jpe?g|png|gif|svg)$/i,
@@ -83,5 +82,10 @@ const config = {
 		})
 	],
 };
+
+// These need to be setup so the babel loader doesn't pass through thso files (?)
+require.extensions['.png'] = function () {};
+require.extensions['.jpg'] = function () {};
+require.extensions['.css'] = function () {};
 
 module.exports = config;

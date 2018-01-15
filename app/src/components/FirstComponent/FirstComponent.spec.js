@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import FirstComponent from './FirstComponent';
 
 describe('<FirstComponent />', () => {
-	Enzyme.configure({ adapter: new Adapter() })
+	Enzyme.configure({ adapter: new Adapter() });
 
 	it('should render one exampleParagraph', () => {
 		const wrapper = mount(<FirstComponent />);

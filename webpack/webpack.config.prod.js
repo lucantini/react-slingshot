@@ -23,10 +23,6 @@ config.module.rules.unshift({
 		loader: 'style-loader',
 	}, {
 		loader: 'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[local]',
-	}, {
-		loader: 'postcss-loader',
-	}, {
-		loader: 'resolve-url-loader',
 	}]
 }, {
 	test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
