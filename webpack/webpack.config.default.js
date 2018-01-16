@@ -1,6 +1,6 @@
 const webpack = require('webpack'),
 	path = require('path'),
-	HtmlWebpackPlugin = require('html-webpack-plugin'),
+	// HtmlWebpackPlugin = require('html-webpack-plugin'),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	FlowStatusWebpackPlugin = require('flow-status-webpack-plugin'),
 	project_path = path.join(__dirname, '../app'),
@@ -39,14 +39,19 @@ const config = {
 				loader: 'style-loader',
 				options: { sourceMap: true }
 			}, {
-				loader: 'css-loader',
+				loader: 'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[local]\'',
 				options: { sourceMap: true }
 			},
-			// 	{
-			// 	loader: 'postcss-loader',
-			// 	options: { sourceMap: true }
-			// }
-			]
+			{
+				loader: 'postcss-loader',
+				options: {
+					sourceMap: true,
+					plugins: () => [
+						require('autoprefixer'),
+						require('css-mqpacker'),
+					]
+				}
+			}]
 		}, {
 			//IMAGE LOADER
 			test: /\.(jpe?g|png|gif|svg)$/i,
