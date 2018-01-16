@@ -5,7 +5,7 @@ let config = require('./webpack.config.default.js'),
 
 
 config.devServer = {
-	port: process.env.PORT || 3333,
+	port: process.env.PORT || 1337,
 	host: process.env.HOST || 'localhost'
 };
 
