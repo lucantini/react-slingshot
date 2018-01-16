@@ -1,6 +1,6 @@
 {
 	"name": "react-slingshot",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "React Slinghsot",
 	"author": "Luca Cantini",
 	"repository": {
@@ -13,15 +13,22 @@
 		"exclude": [
 			"**/*.spec.js",
 			"build",
-			"mocha.*"
+			"config/**.*",
+			"jest.*"
+		],
+		"reporter": [
+			"html",
+			"text-summary"
 		]
 	},
 	"scripts": {
 		"start": "NODE_ENV=development babel-node server/index.js",
 		"build": "webpack --config ./webpack/webpack.config.prod.js",
-		"test": "node scripts/test.js --env=jsdom"
+		"test": "node scripts/test.js --env=jsdom",
+		"test-coverage": "node scripts/test.js --env=jsdom --coverage",
+		"coverage": "nyc npm run test-coverage",
+		"coverage-check": "npm run coverage && nyc check-coverage --lines 60 --functions 60 --branches 60"
 	},
-	"license": "ISC",
 	"dependencies": {
 		"@babel/core": "^7.0.0-beta.37",
 		"@babel/preset-env": "^7.0.0-beta.37",

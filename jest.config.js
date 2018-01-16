@@ -1,9 +1,9 @@
 module.exports = {
 	collectCoverageFrom: [
-		"app/src/**/*.{js,jsx}"
+		"<rootDir>/app/src/**/*.{js,jsx}"
 	],
 	setupFiles: [
-		"<rootDir>/config/polyfills.js"
+		// "<rootDir>/config/polyfills.js"
 	],
 	testMatch: [
 		"<rootDir>/app/src/**/?(*.)(spec|test).js?(x)",
@@ -31,6 +31,6 @@ module.exports = {
 	modulePathIgnorePatterns: [
 		"<rootDir>/src/routes/index.js",
 		"<rootDir>/src/index.js",
-		"<rootDir>/src/registerServiceWorker.js"
+		"<rootDir>/src/registerServiceWorker.js",
 	]
 };
