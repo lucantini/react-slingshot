@@ -80,7 +80,6 @@
 		"nyc": "^11.4.1",
 		"opener": "^1.4.2",
 		"postcss-loader": "^2.0.10",
-		"poststylus": "^1.0.0",
 		"prop-types": "^15.6.0",
 		"react": "^16.2.0",
 		"react-addons-test-utils": "^15.3.2",
@@ -95,14 +94,12 @@
 		"resolve-url-loader": "^2.2.1",
 		"spec": "^1.0.1",
 		"style-loader": "^0.19.1",
-		"stylus": "^0.54.5",
-		"stylus-loader": "^3.0.1",
 		"url-loader": "^0.6.2",
 		"webpack": "^2.2.0",
 		"webpack-dev-middleware": "^1.8.4",
 		"webpack-hot-middleware": "^2.19.1"
 	},
 	"engines": {
-		"node": ">=6"
+		"node": ">=8"
 	}
 }
